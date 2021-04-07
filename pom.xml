@@ -22,6 +22,7 @@
         <module>eureka-client</module>
         <module>ribbon-demo</module>
         <module>eureka-ribbon-client</module>
+        <module>eureka-feign-client</module>
     </modules>
 
     <properties>
