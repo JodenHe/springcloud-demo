@@ -1,0 +1,14 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+    status-page-url: /actuator/info # 信息查询的 url link
+    health-check-url: /actuator/health # 健康检查的 url
+  # Eureka Server 必须禁止向自己注册 必须将 eureka.client.register-with-eureka 和 eureka.client.fetch-registry 设置为 false
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
