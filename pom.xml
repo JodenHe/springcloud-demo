@@ -23,6 +23,7 @@
         <module>loadbalancer-demo</module>
         <module>eureka-loadbalancer-client</module>
         <module>eureka-feign-client</module>
+        <module>eureka-gateway-client</module>
     </modules>
 
     <properties>

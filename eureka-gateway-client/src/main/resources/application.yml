@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: eureka-gateway-client
+  cloud:
+    gateway:
+      routes:
+      # 配置了一个路由 hiapi， 当路径（ - Path=/hiapi/**），就转发到服务（lb://eureka-client），同时把路径中的hiapi这部分去掉（- StripPrefix=1）
+      - id: hiapi
+        # 重点！/info必须使用http进行转发，lb代表从注册中心获取服务
+        uri: lb://eureka-client
+        predicates:
+        # 重点！转发该路径！,/hiapi/**,
+        - Path=/hiapi/**
+        filters:
+        - StripPrefix=1
+#        - name: CircuitBreaker
+#          args:
+#            name: myCircuitBreaker
+#            fallbackUri: forward:/inCaseOfFailureUseThis
+      - id: lbapi
+        uri: lb://eureka-loadbalancer-client
+        predicates:
+        - Path=/lbapi/**
+        filters:
+        - StripPrefix=1
+      - id: feignapi
+        uri: lb://eureka-feign-client
+        predicates:
+        - Path=/feignapi/**
+        filters:
+        - StripPrefix=1
+      filter:
+        circuit-breaker:
+          enabled: true
+#      metrics:
+#        prefix: /v1
+
+server:
+  port: 5000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
