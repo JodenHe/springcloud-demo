@@ -24,6 +24,8 @@
         <module>eureka-loadbalancer-client</module>
         <module>eureka-feign-client</module>
         <module>eureka-gateway-client</module>
+        <module>config-server</module>
+        <module>config-client</module>
     </modules>
 
     <properties>
