@@ -28,6 +28,7 @@
         <module>config-client</module>
         <module>user-service</module>
         <module>gateway-service</module>
+        <module>admin-server</module>
     </modules>
 
     <properties>
@@ -35,6 +36,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>2020.0.2</spring-cloud.version>
+        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
     </properties>
 
     <dependencyManagement>
@@ -43,6 +45,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

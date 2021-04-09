@@ -1,20 +1,9 @@
-spring:
-  application:
-    name: eureka-client
-
-server:
-  port: 8762
-
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
-
-logging:
-  file:
-    name: "logs/eureka-client/eureka-client-${server.port}.log"
 
 #actuator  启用所有的监控端点 “*”号代表启用所有的监控端点，可以单独启用，例如，health，info，metrics
 #  spring boot 升为 2.0 后，为了安全，默认 Actuator 只暴露了2个端点，heath 和 info
@@ -26,3 +15,18 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+
+server:
+  port: 5000
+logging:
+  file:
+    name: "logs/admin-server/boot-admin-smaple.log"
+
+spring:
+  application:
+    name: service-admin
+  boot:
+    admin:
+      routes:
+        endpoints: env, metrics, dump, jolokia, info, configprops, trace, logfile, refresh, flyway, liquibase, heapdump, loggers, auditevents, hystrix.stream
+
