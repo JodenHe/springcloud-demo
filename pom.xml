@@ -29,6 +29,7 @@
         <module>user-service</module>
         <module>gateway-service</module>
         <module>admin-server</module>
+        <module>security-service</module>
     </modules>
 
     <properties>
