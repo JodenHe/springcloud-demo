@@ -30,6 +30,8 @@
         <module>gateway-service</module>
         <module>admin-server</module>
         <module>security-service</module>
+        <module>auth-service</module>
+        <module>auth-user-service</module>
     </modules>
 
     <properties>
